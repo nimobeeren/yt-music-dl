@@ -466,7 +466,7 @@ def delete_playlist_item(oauth, playlist_item):
             # Retry request with new access token
             try:
                 opener.open(req)
-            except urllib.error.HTTPError as e:
+            except urllib.error.HTTPError:
                 logging.exception('Received unexpected response from API server while deleting playlist item')
                 sys.exit()
         else:
