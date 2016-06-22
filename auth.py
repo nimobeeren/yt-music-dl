@@ -74,7 +74,7 @@ class OAuth:
 
             logging.debug('Access token: invalid')
             return False
-        except KeyError or TypeError as e:
+        except KeyError or TypeError:
             logging.exception('Received unexpected response from API server while checking access token validity')
             sys.exit()
 
@@ -97,7 +97,8 @@ class OAuth:
                     if self.access_token_valid():
                         return True
 
-                # If access token is either invalid or we failed to refresh, get new credentials through user intervention
+                # If access token is either invalid or we failed to refresh,
+                # get new credentials through user intervention
                 logging.debug('Getting new credentials...')
                 if self.get_new_credentials():
                     return self.access_token_valid()
@@ -117,10 +118,10 @@ class OAuth:
             try:
                 with open(self.credentials_file) as file:
                     self.credentials = json.load(file)
-            except FileNotFoundError as e:
+            except FileNotFoundError:
                 logging.debug('Credentials file not found')
                 return False
-            except PermissionError as e:
+            except PermissionError:
                 logging.debug('Could not read credentials from file')
                 return False
 
@@ -159,7 +160,7 @@ class OAuth:
         try:
             # Request credentials refresh
             response = conn.getresponse()
-        except httplib2.HttpLib2Error as e:
+        except httplib2.HttpLib2Error:
             logging.debug('Received unexpected response from API server while refreshing credentials')
             return False
 
@@ -175,7 +176,7 @@ class OAuth:
                         'token_type': data['token_type'],
                         'refresh_token': self.credentials['refresh_token']
                     }
-            except KeyError or TypeError as e:
+            except KeyError or TypeError:
                 logging.debug('Received unexpected response from API server while refreshing credentials')
                 return False
 
@@ -213,11 +214,13 @@ class OAuth:
 
             try:
                 # Poll google to get new credentials as soon as user enters code
-                # We are polling once before even showing the user the code, because we don't want to print the code if we can't access the server anyways
+                # We are polling once before even showing the user the code,
+                # because we don't want to print the code if we can't access the server anyways
                 response = urllib.request.urlopen('https://accounts.google.com/o/oauth2/token', params)
             except urllib.error.HTTPError as e:
                 if e.code == 401:
-                    logging.error('Could not get new credentials with user code, check if your client ID and client secret are correct in the config file')
+                    logging.error('Could not get new credentials with user code, '
+                                  'check if your client ID and client secret are correct in the config file')
                     return False
                 else:
                     logging.exception('Could not get new credentials with user code')
@@ -268,7 +271,7 @@ class OAuth:
         try:
             # Request auth codes
             response = urllib.request.urlopen(url, request_data)
-        except urllib.error.HTTPError as e:
+        except urllib.error.HTTPError:
             logging.error('Could not get user code for authentication')
             return False
 
@@ -282,7 +285,7 @@ class OAuth:
             self.user_code = data['user_code']
             self.verification_url = data['verification_url']
             self.retry_interval = data['interval']
-        except KeyError or TypeError as e:
+        except KeyError or TypeError:
             logging.exception('Received unexpected response from API server while getting user code for authentication')
             return False
 
@@ -293,9 +296,9 @@ class OAuth:
             with open(self.credentials_file, 'w') as outfile:
                 # Write credentials to file
                 json.dump(self.credentials, outfile)
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             logging.exception('Could not find file: "' + os.path.basename(self.credentials_file) + '"')
             sys.exit()
-        except PermissionError as e:
+        except PermissionError:
             logging.exception('No permission to write to file: "' + os.path.basename(self.credentials_file) + '"')
             sys.exit()
