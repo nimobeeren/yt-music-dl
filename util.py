@@ -29,3 +29,4 @@ def get_url(video_id):
 
 def print_loading_dots(message, count):
     i = count % 3
+    print(message + i * ' ' + '.' + (2-i) * ' ', end='\r')
