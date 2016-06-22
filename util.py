@@ -25,3 +25,7 @@ def get_formatted_date():
 
 def get_url(video_id):
     return "https://www.youtube.com/watch?v=" + video_id
+
+
+def print_loading_dots(message, count):
+    i = count % 3

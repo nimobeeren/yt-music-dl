@@ -3,10 +3,12 @@ import json
 import logging
 import os
 import sys
-from time import sleep
+import time
 import urllib.parse
 import urllib.request
 import urllib.error
+
+import util
 
 
 class OAuth:
@@ -247,10 +249,10 @@ class OAuth:
             elif 'error' in data:
                 if data['error'] == 'authorization_pending':
                     # Indicate that we are waiting for user to grant permission
-                    print('Authorization pending...')
+                    util.print_loading_dots('Authorization pending', tries-1)
 
             # Wait for the given amount of time before trying again
-            sleep(self.retry_interval)
+            time.sleep(self.retry_interval)
 
         return False
 
