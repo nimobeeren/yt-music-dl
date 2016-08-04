@@ -16,6 +16,7 @@ def apply_tags(tags, path):
         for tag in tags:
             if not type(tag) == Tag:
                 raise ValueError('Tags argument must consist of Tag objects')
+    # Check if tag argument is a single Tag object
     else:
         if not type(tags) == Tag:
             raise ValueError('Tags argument must consist of Tag objects')
@@ -26,8 +27,8 @@ def apply_tags(tags, path):
 
     # Add tags to ID3 object
     for tag in tags:
-        # Don't add tag if value is None or whitespace
-        if tag.value is not None and not tag.value.isspace():
+        # Don't add tag if value is None or whitespace, or if no frame is specified
+        if tag.value is not None and not tag.value.isspace() and tag.frame is not None:
             audio.add(tag.frame(text=tag.value))
 
     # Write tags to file
@@ -36,8 +37,9 @@ def apply_tags(tags, path):
 
 class Tag:
     def __init__(self, fieldname, value):
-        # Store fieldname
-        self.fieldname = fieldname
+        # Declare accessible fields
+        self.frame = None
+        self.value = None
 
         # Select correct frame from field name
         if fieldname.lower() in FIELDS:
