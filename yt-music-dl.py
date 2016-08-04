@@ -374,7 +374,6 @@ def download_audio(url, out_dir):
 
 def autotag(path, video_title, config, channel=None):
     # Compile regex
-    # My personal regex: https://regex101.com/r/iJ8hZ0/
     p = re.compile(r'(.*)(?:\s+-\s+)(.*)')
 
     # Match regex against YouTube video title
@@ -387,15 +386,6 @@ def autotag(path, video_title, config, channel=None):
         artist = m.group(1)
         title = m.group(2)
         genre = None
-
-        #                   FOR PERSONAL REGEX
-        # Get artist and title tags from regex
-        # artist = m.group(2)
-        # title = m.group(3)
-
-        # Set genre based on title format [Genre] Artist - Title
-        # if m.group(1) is not None:
-        #     genre = m.group(1)  # Set genre based on video title
 
         # Set genre based on channel
         logging.debug('Channel name: ' + channel.lower())

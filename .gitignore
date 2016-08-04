@@ -1,2 +1,4 @@
 .idea
-experimental*
+xp-*
+config.ini
+personal.txt
