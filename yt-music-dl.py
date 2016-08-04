@@ -3,12 +3,11 @@
 # Credits:
 # http://guy.carpenter.id.au/gaugette/2012/11/06/using-google-oauth2-for-devices/
 
-# TODO: Add more tagging fields
 # TODO: Progress indication during downloading/converting
-# TODO: Fancier 'authorization pending' thingy (maybe some moving '...')
 # TODO: Custom tagging in config file (maybe too complex for this kind of app)
-# TODO: Consistent use of either httplib2 or urllib
+# TODO: Add more tagging fields (?)
 # TODO: Album art from video thumbnail
+# TODO: Consistent use of either httplib2 or urllib
 
 import argparse
 import atexit
