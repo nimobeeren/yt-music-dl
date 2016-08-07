@@ -39,13 +39,11 @@ class Tag:
     def __init__(self, fieldname, value):
         # Declare accessible fields
         self.frame = None
-        self.value = None
+        self.value = value
+        self.fieldname = fieldname
 
-        # Select correct frame from field name
+        # Select correct frame using field name
         if fieldname.lower() in FIELDS:
             self.frame = FIELDS[fieldname.lower()]
         else:
             raise ValueError('Not a valid field name')
-
-        # Set the value of the tag
-        self.value = value
