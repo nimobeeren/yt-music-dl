@@ -378,8 +378,7 @@ def autotag(path, video_title, config, channel=None):
     # Match regex against YouTube video title
     m = p.match(video_title)
 
-    # Check if regex matches
-    # If not, don't tag anything at all
+    # Check if regex matches. If not, don't tag anything at all
     if m:
         # Get artist and title tags from regex
         artist = m.group(1)
@@ -399,13 +398,15 @@ def autotag(path, video_title, config, channel=None):
             tagging.Tag('genre', genre)
         ]
 
+        # tags = tagging.Tag('artist', artist)
+
         # Output debug tagging info
         # <Field>: <Value>
         for tag in tags:
             logging.debug(str(tag.fieldname) + ': ' + str(tag.value))
 
         # Apply tags to MP3 file
-        tagging.apply_tags(path, tags)
+        tagging.apply_tags(tags, path)
 
 
 def delete_playlist_item(oauth, playlist_item):
