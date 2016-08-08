@@ -10,15 +10,10 @@ FIELDS = {
 }
 
 
-def apply_tags(tags, path):
-    # Check if tag argument is a list of Tag objects
-    if len(tags) > 1:
-        for tag in tags:
-            if not type(tag) == Tag:
-                raise ValueError('Tags argument must consist of Tag objects')
-    # Check if tag argument is a single Tag object
-    else:
-        if not type(tags) == Tag:
+def apply_tags(path, *tags):
+    # Check if tags argument contains Tag objects
+    for tag in tags:
+        if not type(tag) == Tag:
             raise ValueError('Tags argument must consist of Tag objects')
 
     # Create ID3 object

@@ -405,7 +405,7 @@ def autotag(path, video_title, config, channel=None):
             logging.debug(str(tag.fieldname) + ': ' + str(tag.value))
 
         # Apply tags to MP3 file
-        tagging.apply_tags(tags, path)
+        tagging.apply_tags(path, tags)
 
 
 def delete_playlist_item(oauth, playlist_item):
