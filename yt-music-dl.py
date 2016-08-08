@@ -367,8 +367,8 @@ def download_audio(url, out_dir):
     try:
         youtube_dl.YoutubeDL(ydl_opts).download([url])
     except PermissionError:
-            logging.exception('No permission to run youtube_dl, try running as root')
-            sys.exit()
+        logging.exception('No permission to run youtube_dl, try running as root')
+        sys.exit()
 
 
 def autotag(path, video_title, config, channel=None):
