@@ -46,9 +46,6 @@ Optional arguments:
   --setup      Perform first-time setup so that the program can run autonomously
 ```
 
-## Credits
-Guy Carpenter, for sharing [his knowledge](http://guy.carpenter.id.au/gaugette/2012/11/06/using-google-oauth2-for-devices/) about OAuth for devices.
-
 ## Author
 Nimo Beeren (nimobeeren@gmail.com)
 
