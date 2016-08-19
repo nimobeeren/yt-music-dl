@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-# Credits:
-# http://guy.carpenter.id.au/gaugette/2012/11/06/using-google-oauth2-for-devices/
-
 # TODO: Progress indication during downloading/converting
 # TODO: Custom tagging in config file (maybe too complex for this kind of app)
 # TODO: Add more tagging fields (?)
