@@ -379,12 +379,12 @@ def autotag(path, video_title, config, channel=None):
     if m:
         # Get artist and title tags from regex (Personal modification)
         artist = m.group(2)
-		title = m.group(3)
+        title = m.group(3)
         genre = None
 
         # Set genre based on title format [Genre] Artist - Title (Personal modification)
-		if m.group(1) is not None:
-    		genre = m.group(1)  # Set genre based on video title
+        if m.group(1) is not None:
+            genre = m.group(1)  # Set genre based on video title
 
         # Set genre based on channel
         logging.debug('Channel name: ' + channel.lower())
