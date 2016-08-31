@@ -231,7 +231,7 @@ class OAuth:
             # Show the user the code and verification url, but only once
             if tries == 1:
                 print(
-                        'Please visit {} and enter the following code: {}'
+                        'Please visit {} and enter the following code:\n{}'
                         .format(
                             self.verification_url,
                             str(self.user_code)
