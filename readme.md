@@ -6,14 +6,16 @@ Command-line program to automatically download and tag music when a video is add
 
 2. Install the [dependencies](#dependencies).
 
-3. Open the [Google Cloud Console](https://console.cloud.google.com) and log in to a Google account. Go to [API Manager](https://console.cloud.google.com/apis) --> [Library](https://console.cloud.google.com/apis/library) and click on YouTube Data API. Click the 'Enable' button at the top-left.
+3. Open the [Google Cloud Console](https://console.cloud.google.com) and log in to a Google account. If you're not already there, go to [IAM & Admin](https://console.cloud.google.com/iam-admin) --> [All projects](https://console.cloud.google.com/iam-admin/projects). Click 'Create project', give it a name, such as `yt-music-dl`, and click 'Create'.
 
-4. In the left-hand menu, go to [Credentials](https://console.cloud.google.com/apis/credentials). Click 'Create credentials' and select 'OAuth client ID'. Click 'Configure consent screen' and fill in a name you like. Save, select application type 'Other' and enter a name for the device the yt-music-dl will be running on. Click the Create button.
+4. Go to [API Manager](https://console.cloud.google.com/apis) --> [Library](https://console.cloud.google.com/apis/library) and click on YouTube Data API. Click the 'Enable' button at the top-left.
+
+5. In the left-hand menu, go to [Credentials](https://console.cloud.google.com/apis/credentials). Click 'Create credentials' and select 'OAuth client ID'. Click 'Configure consent screen' and fill in a name you like. Save, select application type 'Other' and enter a name for the device the yt-music-dl will be running on. Click the Create button.
 <br>You will now be presented with a client ID and a client secret. Open the `config.ini` file from the repo and copy these strings to their respective places in the `AUTHENTICATION` section.
 
-5. Create a playlist on YouTube and copy the ID, which is the part after `?list=` in the URL. Paste this ID to `PlaylistID` in the `config.ini` file. Fill in an output directory and configure the program however you like.
+6. Create a playlist on YouTube and copy the ID, which is the part after `?list=` in the URL. Paste this ID to `PlaylistID` in the `config.ini` file. Fill in an output directory and configure the program however you like.
 
-6. Run the first-time setup by typing `sudo python3 yt-music-dl --setup`.
+7. Run the first-time setup by typing `sudo python3 yt-music-dl --setup`.
 <br>You must log in to the same Google account you use for YouTube, but that does not have to be the same account as used in step 3.
 
 ### Scheduling
@@ -47,7 +49,7 @@ Optional arguments:
 ```
 
 ## Credits
-Guy Carpenter, for sharing [his knowledge](http://guy.carpenter.id.au/gaugette/2012/11/06/using-google-oauth2-for-devices/) about OAuth for devices.
+Thanks to Guy Carpenter, for sharing [his knowledge](http://guy.carpenter.id.au/gaugette/2012/11/06/using-google-oauth2-for-devices/) about OAuth for devices.
 
 ## Author
 Nimo Beeren (nimobeeren@gmail.com)
