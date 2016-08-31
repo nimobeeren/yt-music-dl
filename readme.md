@@ -1,5 +1,5 @@
 # yt-music-dl
-Command-line program to automatically download and tag music when a video is added to a YouTube playlist.
+Command-line program to easily download and tag music from a YouTube playlist.
 
 ## Installation
 1. Clone the repo, preferably onto a system that is running most of the time.
@@ -17,6 +17,8 @@ Command-line program to automatically download and tag music when a video is add
 
 7. Run the first-time setup by typing `sudo python3 yt-music-dl --setup`.
 <br>You must log in to the same Google account you use for YouTube, but that does not have to be the same account as used in step 3.
+
+Whenever you run yt-music-dl.py, the program will download any video you put in your playlist as MP3, tag it, and then remove it from the playlist. To automatically download video's without user intervention, see [Scheduling](#scheduling).
 
 ### Scheduling
 
