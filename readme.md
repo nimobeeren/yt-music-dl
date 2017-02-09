@@ -34,6 +34,7 @@ Check out [this how-to](https://help.ubuntu.com/community/CronHowto) if you want
 
 This program requires the following Python libraries to run:
 
+* `httplib2`
 * `mutagen`
 * `youtube-dl`
 
