@@ -1,5 +1,5 @@
 # yt-music-dl
-Command-line program to easily download and tag music from a YouTube playlist.
+This is a command-line program to easily download and tag music from a YouTube playlist.
 
 ## Installation
 1. Clone the repo, preferably onto a system that is running most of the time.
@@ -39,6 +39,8 @@ This program requires the following Python libraries to run:
 * `youtube-dl`
 
 Install these dependencies by typing `sudo pip3 install <package name>`. The program will not function correctly without them.
+
+The Python library `youtube-dl` uses ffmpeg or avconv to convert the video to audio. You will need to install at least one of these. On Raspbian, installing `libav-tools` will do the job.
 
 ## Usage
 
